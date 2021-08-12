@@ -34,7 +34,7 @@ public class PlayerAttak : Attack
     }
     private void OnTriggerExit(Collider other)
     {
-        if (_targetEnemy.gameObject == other.gameObject)
+        if (_targetEnemy?.gameObject == other.gameObject)
         {
             StopAttack();
             _targetEnemy = null;

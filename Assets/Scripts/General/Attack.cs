@@ -19,4 +19,8 @@ public class Attack : MonoBehaviour
             yield return new WaitForSeconds(_attackSpeed);
         }
     }
+    public void AttackChanges(float namber)
+    {
+        _attackPoswer += namber;
+    }
 }

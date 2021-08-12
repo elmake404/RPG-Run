@@ -20,7 +20,6 @@ public class Health : MonoBehaviour
 
         if (_healthLevel < 0)
         {
-
             Death?.Invoke();
             Destroy(gameObject);
         }
