@@ -18,7 +18,7 @@ public class CameraMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameStage.IsGameFlowe)
+        if (/*GameStage.IsGameFlowe&&*/_target!=null)
         {
             Vector3 NextPosCamera = (_target.transform.position + _offset);
             NextPosCamera.x = transform.position.x;

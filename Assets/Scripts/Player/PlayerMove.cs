@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     private float _lateralSpeed, _runningSpeed, _boosterAccelerationPercentage;
     [SerializeField]
     private float _horizontalLimit;
+    public bool IsStopped;
 
     private void Start()
     {
@@ -54,12 +55,13 @@ public class PlayerMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //if (GameStage.IsGameFlowe)
+        //if (/*GameStage.IsGameFlowe*/)
         //{
-            Vector3 PosX = transform.position;
-            PosX.x = CheckLimmit(_targetPosPlayer);
-            transform.position = Vector3.MoveTowards(transform.position, PosX, _lateralSpeed);
+        Vector3 PosX = transform.position;
+        PosX.x = CheckLimmit(_targetPosPlayer);
+        transform.position = Vector3.MoveTowards(transform.position, PosX, _lateralSpeed);
 
+        if (!IsStopped)
             transform.Translate(Vector3.forward * _runningSpeed);
         //}
     }
@@ -75,6 +77,10 @@ public class PlayerMove : MonoBehaviour
             target.x = _startPosPlayer.x - _horizontalLimit;
         }
         return target.x;
+    }
+    private bool IsMovement()
+    {
+        return /*GameStage.IsGameFlowe&&*/ !IsStopped;
     }
 
     private void OnDrawGizmosSelected()
